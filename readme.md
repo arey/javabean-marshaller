@@ -93,7 +93,7 @@ There are also unit tests available to look at.
 
 ## Contributing to JavaBean Marshaller ##
 
-Github is for social coding platform: if you want to write code, we encourage contributions through pull requests from [forks of this repository](http://help.github.com/forking/). If you want to contribute code this way, please reference a GitHub ticket as well covering the specific issue you are addressing.
+Github is for social coding platform: if you want to write code, we encourage contributions through pull requests from [forks of this repository](https://help.github.com/articles/fork-a-repo/). If you want to contribute code this way, please reference a GitHub ticket as well covering the specific issue you are addressing.
 
 To add a new custom type, you jave to implement the ```CodeGenerator``` interface then call the ```JavaBeanMarshaller::addCodeGenerator``` method.
 
