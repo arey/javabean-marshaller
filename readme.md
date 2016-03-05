@@ -22,6 +22,8 @@ Instead of using XML or JSON serialization, dataset are generated into the Java 
 ## Example ##
 
 Let's imagine an in memory artist instance with a single album.
+![UML class diagramm](https://raw.githubusercontent.com/arey/javabean-marshaller/master/src/test/java/com/javaetmoi/javabean/domain/artist.png "UML class diagramm")
+
 Call the ```generateJavaCode``` method:
 
 ```
