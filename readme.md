@@ -117,15 +117,11 @@ Otherwise, generate IDE metadata with the related IDE maven plugin:
 
 * [Javapoet](https://github.com/square/javapoet) from Square and [Apache Common BeanUtils](https://commons.apache.org/proper/commons-beanutils/)
 * Uses [Maven](http://maven.apache.org/) as a build tool
-* Uses [Cloudbees](http://www.cloudbees.com/foss) and [Travis CI](http://www.travis-ci.org) for continuous integration builds whenever code is pushed into GitHub
+* Uses [Travis CI](http://www.travis-ci.org) for continuous integration builds whenever code is pushed into GitHub
 
 
 ## Build Status ##
 
 Travis: [![Build
-Status](https://travis-ci.org/arey/javabean-marshaller.png?branch=master)](https://travis-ci.org/arey/hibernate-hydrate)
+Status](https://travis-ci.org/arey/javabean-marshaller.png?branch=master)](https://travis-ci.org/arey/javabean-marshaller)
 
-Cloudbees Jenkins: [![Build
-Status](https://javaetmoi.ci.cloudbees.com/job/javabean-marshaller/badge/icon)](https://javaetmoi.ci.cloudbees.com/job/javabean-marshaller/)
-
-Bitdeli: [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/arey/javabean-marshaller/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
