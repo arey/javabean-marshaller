@@ -1,0 +1,276 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.javaetmoi.util</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>javaetmoi-javabean-marshaller</artifactId>
+    <name>JavaEtMoi Util :: ${project.artifactId}</name>
+    <packaging>jar</packaging>
+    <description>The JavaBeanMarshaller is responsible for serializing an object (graph) to it's Java code.
+    </description>
+    <inceptionYear>2016</inceptionYear>
+    <url>https://github.com/arey/javabean-marshaller</url>
+
+    <developers>
+        <developer>
+            <id>arey</id>
+            <name>Antoine Rey</name>
+            <email>antoine@javaetmoi.com</email>
+            <url>http://javaetmoi.com</url>
+            <timezone>+1</timezone>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <!-- Continous Integration build hosted by CloudBees -->
+    <ciManagement>
+        <system>jenkins</system>
+        <url>https://javaetmoi.ci.cloudbees.com/job/JavaBean-Marshaller/</url>
+    </ciManagement>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/arey/javabean-marshaller/issues</url>
+    </issueManagement>
+
+    <!-- Apache 2 license -->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <!-- GitHub Software Configuration Management -->
+    <scm>
+        <url>https://github.com/arey/javabean-marshaller</url>
+        <connection>scm:git:ssh://git@github.com/arey/javabean-marshaller.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/arey/javabean-marshaller.git</developerConnection>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <java.version>1.7</java.version>
+
+        <!-- Version of third libraries -->
+        <version.logback>1.1.2</version.logback>
+        <version.javapoet>1.5.1</version.javapoet>
+        <version.slf4j>1.7.12</version.slf4j>
+        <version.joda-time>2.8.2</version.joda-time>
+        <version.commons-beanutils>1.9.2</version.commons-beanutils>
+        <version.junit>4.11</version.junit>
+        <version.unitils>3.4.1</version.unitils>
+
+        <!-- Version of maven plugins -->
+        <version.plugin.maven-eclipse-plugin>2.9</version.plugin.maven-eclipse-plugin>
+        <version.plugin.maven-compiler-plugin>2.3</version.plugin.maven-compiler-plugin>
+        <version.plugin.maven-resources-plugin>2.4.3</version.plugin.maven-resources-plugin>
+        <version.plugin.maven-source-plugin>2.1.2</version.plugin.maven-source-plugin>
+        <version.plugin.maven-javadoc-plugin>2.7</version.plugin.maven-javadoc-plugin>
+        <version.plugin.maven-release-plugin>2.5</version.plugin.maven-release-plugin>
+        <version.plugin.nexus-staging-maven-plugin>1.6.2</version.plugin.nexus-staging-maven-plugin>
+        <version.plugin.maven-gpg-plugin>1.5</version.plugin.maven-gpg-plugin>
+    </properties>
+
+    <dependencies>
+
+        <!-- JavaPoet -->
+        <dependency>
+            <groupId>com.squareup</groupId>
+            <artifactId>javapoet</artifactId>
+            <version>${version.javapoet}</version>
+        </dependency>
+
+        <!-- Commons Bean Utils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${version.commons-beanutils}</version>
+        </dependency>
+
+        <!-- SLF4J -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.slf4j}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${version.joda-time}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Tests -->
+        <!-- * JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${version.junit}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- * Logger -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${version.logback}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Unitils is useful for reflection assertion -->
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-core</artifactId>
+            <version>${version.unitils}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.plugin.maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.plugin.maven-source-plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${version.plugin.maven-release-plugin}</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${version.plugin.maven-javadoc-plugin}</version>
+            </plugin>
+            <!-- Nexus Staging Maven Plugin for Deployment and Release into Sonatype OSSRH -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${version.plugin.nexus-staging-maven-plugin}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Deploy snapshots to the Sonatype OSSRH (OSS Repository Hosting) -->
+    <distributionManagement>
+        <downloadUrl>https://github.com/arey/javabean-marshaller</downloadUrl>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>eclipse</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-eclipse-plugin</artifactId>
+                            <version>${version.plugin.maven-eclipse-plugin}</version>
+                            <configuration>
+                                <wtpversion>2.0</wtpversion>
+                                <downloadSources>true</downloadSources>
+                                <downloadJavadocs>true</downloadJavadocs>
+                                <ajdtVersion>none</ajdtVersion>
+                                <useProjectReferences>true</useProjectReferences>
+                                <additionalProjectnatures>
+                                    <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                                </additionalProjectnatures>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+        <profile>
+            <!-- Specific profile for release or artifact deployment -->
+            <!-- Sources et javadoc are packaged -->
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </plugin>
+                    <!--GPG Signed Artefacts required by Maven Central -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${version.plugin.maven-gpg-plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

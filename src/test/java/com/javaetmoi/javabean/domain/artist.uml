@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="129.0" y="0.0">com.javaetmoi.javabean.domain.Album</node>
+    <node x="0.0" y="11.0">com.javaetmoi.javabean.domain.ArtistType</node>
+    <node x="76.75000000000001" y="146.0">com.javaetmoi.javabean.domain.Artist</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.javaetmoi.javabean.domain.Artist" target="com.javaetmoi.javabean.domain.ArtistType">
+      <point x="-63.0" y="-59.0" />
+      <point x="108.25000000000001" y="121.0" />
+      <point x="54.5" y="121.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Album" target="com.javaetmoi.javabean.domain.Artist">
+      <point x="42.25" y="48.0" />
+      <point x="255.75" y="121.0" />
+      <point x="234.25" y="121.0" />
+      <point x="63.0" y="-59.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Artist" target="com.javaetmoi.javabean.domain.Album">
+      <point x="0.0" y="-59.0" />
+      <point x="-42.25" y="48.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="149.0" y="132.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

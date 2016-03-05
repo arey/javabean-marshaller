@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="104.0" y="0.0">com.javaetmoi.javabean.domain.AddressType</node>
+    <node x="50.5" y="320.0">com.javaetmoi.javabean.domain.Project</node>
+    <node x="18.5" y="240.0">com.javaetmoi.javabean.domain.Employee</node>
+    <node x="46.5" y="160.0">com.javaetmoi.javabean.domain.Person</node>
+    <node x="0.0" y="0.0">com.javaetmoi.javabean.domain.Country</node>
+    <node x="20.75" y="80.0">com.javaetmoi.javabean.domain.Address</node>
+    <node x="153.64814814814815" y="160.0">com.javaetmoi.javabean.domain.Passport</node>
+    <node x="128.14814814814815" y="240.0">com.javaetmoi.javabean.domain.Customer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.javaetmoi.javabean.domain.Project" target="com.javaetmoi.javabean.domain.Employee">
+      <point x="-19.25" y="-15.0" />
+      <point x="69.75" y="290.0" />
+      <point x="53.75" y="290.0" />
+      <point x="-11.75" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Address" target="com.javaetmoi.javabean.domain.Country">
+      <point x="-21.25" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Address" target="com.javaetmoi.javabean.domain.AddressType">
+      <point x="21.25" y="-15.0" />
+      <point x="84.5" y="55.0" />
+      <point x="132.75" y="55.0" />
+      <point x="-28.75" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Customer" target="com.javaetmoi.javabean.domain.Person">
+      <point x="-31.66666666666667" y="-15.0" />
+      <point x="143.98148148148147" y="215.0" />
+      <point x="103.5" y="215.0" />
+      <point x="19.0" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Employee" target="com.javaetmoi.javabean.domain.Project">
+      <point x="11.75" y="15.0" />
+      <point x="77.25" y="300.0" />
+      <point x="82.58333333333331" y="300.0" />
+      <point x="-6.416666666666686" y="-15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Employee" target="com.javaetmoi.javabean.domain.Person">
+      <point x="0.0" y="-15.0" />
+      <point x="-19.0" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Person" target="com.javaetmoi.javabean.domain.AddressType">
+      <point x="25.333333333333343" y="-15.0" />
+      <point x="109.83333333333334" y="135.0" />
+      <point x="190.25" y="135.0" />
+      <point x="28.75" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Passport" target="com.javaetmoi.javabean.domain.Customer">
+      <point x="22.0" y="15.0" />
+      <point x="219.64814814814815" y="215.0" />
+      <point x="207.3148148148148" y="215.0" />
+      <point x="31.66666666666667" y="-15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Customer" target="com.javaetmoi.javabean.domain.Passport">
+      <point x="0.0" y="-15.0" />
+      <point x="-22.0" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Customer" target="com.javaetmoi.javabean.domain.Project">
+      <point x="23.75" y="15.0" />
+      <point x="199.39814814814815" y="300.0" />
+      <point x="121.08333333333331" y="300.0" />
+      <point x="32.083333333333314" y="-15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Person" target="com.javaetmoi.javabean.domain.Address">
+      <point x="-25.33333333333333" y="-15.0" />
+      <point x="59.16666666666667" y="135.0" />
+      <point x="42.0" y="135.0" />
+      <point x="-21.25" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Project" target="com.javaetmoi.javabean.domain.Customer">
+      <point x="19.25" y="-15.0" />
+      <point x="108.25" y="290.0" />
+      <point x="151.89814814814815" y="290.0" />
+      <point x="-23.75" y="15.0" />
+    </edge>
+    <edge source="com.javaetmoi.javabean.domain.Address" target="com.javaetmoi.javabean.domain.Person">
+      <point x="21.25" y="15.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="121.0" y="175.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
