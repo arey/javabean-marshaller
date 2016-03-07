@@ -6,6 +6,7 @@ import com.squareup.javapoet.MethodSpec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
 
@@ -30,17 +31,32 @@ public class CollectionCodeGenerator extends DefaultCodeGenerator<Collection> {
         } else {
             constructorCall = "()";
         }
+        Class<?> varType = (param.getPropertyDescriptor()!=null) ? param.getPropertyDescriptor().getPropertyType() : param.getValueClass();
         if (parameterizedType != null) {
+            if (hasParameterType(param.getValueClass().getClass())) {
+                method.addStatement("$T<$T> $L = new $T<>$L", varType, parameterizedType, collName, param.getValueClass(), constructorCall);
+            } else {
+                method.addStatement("$T<$T> $L = new $T$L", varType, parameterizedType, collName, param.getValueClass(), constructorCall);
+            }
 
-            method.addStatement("$T<$T> $L = new $T<>$L", param.getValueClass(), parameterizedType, collName, param.getValueClass(), constructorCall);
         } else {
-            method.addStatement("$T $L = new $T$L", param.getValueClass(), collName, param.getValueClass(), constructorCall);
+            method.addStatement("$T $L = new $T$L", varType, collName, param.getValueClass(), constructorCall);
         }
         for (Object obj : collection) {
             SetterParam newParam = new SetterParam(param.getMarshaller(), collName, null, obj, "add");
             param.getMarshaller().generateSetter(newParam);
         }
         method.addStatement("$L.$L($L)", param.getVarName(), param.getSetterName(), collName);
+    }
+
+    private boolean hasParameterType(Class<?> clazz) {
+        for (Type type : clazz.getGenericInterfaces()) {
+            if (ParameterizedType.class.isAssignableFrom(type.getClass())) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
     private boolean hasInitialCapacityConstructor(Class<?> clazz) {

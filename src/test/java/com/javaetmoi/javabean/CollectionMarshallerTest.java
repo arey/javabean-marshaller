@@ -1,6 +1,7 @@
 package com.javaetmoi.javabean;
 
 import com.javaetmoi.javabean.domain.*;
+import com.javaetmoi.javabean.types.StringList;
 import org.junit.Test;
 
 import java.util.*;
@@ -91,6 +92,21 @@ public class CollectionMarshallerTest extends AbstractJavaBeanMarshallerTest {
         Dummy dummy = new Dummy();
         dummy.getCalendarMap().put("now", Calendar.getInstance());
         dummy.getCalendarMap().put("2010-01-01", new GregorianCalendar(2010, 0, 1));
+        executeTest(dummy);
+    }
+
+    /**
+     * This test reproduces the Hibernate PersistentList behavior.
+     */
+    @Test
+    public void nonGenericImplementation() {
+        Dummy dummy = new Dummy();
+        StringList strings = new StringList();
+
+        List<String> strings2 = new ArrayList<>();
+
+        strings.add("first");
+        dummy.setStringlist(strings);
         executeTest(dummy);
     }
 

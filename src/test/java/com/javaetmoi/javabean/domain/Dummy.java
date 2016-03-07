@@ -28,6 +28,8 @@ public class Dummy {
 
     private String[][] multiDimArray;
 
+    private List<String> stringlist;
+
     public Set<Integer> getIntegerSet() {
         return integerSet;
     }
@@ -114,6 +116,14 @@ public class Dummy {
 
     public void setMultiDimArray(String[][] multiDimArray) {
         this.multiDimArray = multiDimArray;
+    }
+
+    public List<String> getStringlist() {
+        return stringlist;
+    }
+
+    public void setStringlist(List<String> stringlist) {
+        this.stringlist = stringlist;
     }
 }
 
