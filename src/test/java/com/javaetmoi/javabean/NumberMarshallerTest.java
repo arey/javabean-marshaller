@@ -6,6 +6,8 @@ import com.javaetmoi.javabean.domain.Dummy;
 import com.javaetmoi.javabean.domain.NumberBean;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 public class NumberMarshallerTest extends AbstractJavaBeanMarshallerTest {
 
     @Test
@@ -38,6 +40,13 @@ public class NumberMarshallerTest extends AbstractJavaBeanMarshallerTest {
     public void doubleProperty() {
         NumberBean bean = new NumberBean();
         bean.setDoublePrimitive(2.5);
+        executeTest(bean);
+    }
+
+    @Test
+    public void bigDecimalProperty() {
+        NumberBean bean = new NumberBean();
+        bean.setBigDecimal(new BigDecimal("1002.5"));
         executeTest(bean);
     }
 }

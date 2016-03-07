@@ -5,6 +5,8 @@ import com.javaetmoi.javabean.bean.Item;
 import com.javaetmoi.javabean.bean.SetterParam;
 import com.squareup.javapoet.MethodSpec;
 
+import java.math.BigDecimal;
+
 public class NumberCodeGenerator implements CodeGenerator {
 
     @Override
@@ -18,6 +20,8 @@ public class NumberCodeGenerator implements CodeGenerator {
             method.addStatement("$L.$L($LL)", param.getVarName(), param.getSetterName(), param.getValue());
         } else if (Float.class.isAssignableFrom(param.getValueClass())) {
             method.addStatement("$L.$L($Lf)", param.getVarName(), param.getSetterName(), param.getValue());
+        } else if (BigDecimal.class.isAssignableFrom(param.getValueClass())) {
+            method.addStatement("$L.$L(new $T(\"$L\"))", param.getVarName(), param.getSetterName(), BigDecimal.class, param.getValue());
         } else {
             method.addStatement("$L.$L($L)", param.getVarName(), param.getSetterName(), param.getValue());
         }
@@ -27,9 +31,11 @@ public class NumberCodeGenerator implements CodeGenerator {
     public void refineItem(JavaBeanMarshaller marshaller, Item item) {
         if (Long.class.isAssignableFrom(item.getClazz())) {
             item.appendAfterVal("L");
-        } else
-        if (Float.class.isAssignableFrom(item.getClazz())) {
+        } else if (Float.class.isAssignableFrom(item.getClazz())) {
             item.appendAfterVal("f");
+        } else if (BigDecimal.class.isAssignableFrom(item.getClazz())) {
+            item.setPattern("new $T(\""+item.getVal()+"\")");
+            item.setVal(BigDecimal.class);
         }
 
     }

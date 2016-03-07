@@ -4,6 +4,7 @@ import com.javaetmoi.javabean.domain.*;
 import com.javaetmoi.javabean.types.StringList;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -28,10 +29,10 @@ public class CollectionMarshallerTest extends AbstractJavaBeanMarshallerTest {
     @Test
     public void integerTreeSetProperty() {
         Dummy dummy = new Dummy();
-        Set<Integer> hashSet = new TreeSet<>();
-        hashSet.add(1);
-        hashSet.add(2);
-        dummy.setIntegerSet(hashSet);
+        Set<Integer> set = new TreeSet<>();
+        set.add(1);
+        set.add(2);
+        dummy.setIntegerSet(set);
         executeTest(dummy);
     }
 
@@ -42,6 +43,14 @@ public class CollectionMarshallerTest extends AbstractJavaBeanMarshallerTest {
         queue.add(1L);
         queue.add(2L);
         dummy.setLongQueue(queue);
+        executeTest(dummy);
+    }
+
+    @Test
+    public void stringBigDecimalMap() {
+        Dummy dummy = new Dummy();
+        dummy.getStringBigDecimalMap().put("1.01", new BigDecimal("1.01"));
+        dummy.getStringBigDecimalMap().put("2.02", new BigDecimal("2.02"));
         executeTest(dummy);
     }
 

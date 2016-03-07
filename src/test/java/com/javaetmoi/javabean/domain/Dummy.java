@@ -1,5 +1,6 @@
 package com.javaetmoi.javabean.domain;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.Date;
 
@@ -17,6 +18,8 @@ public class Dummy {
     private Map<Integer, Long> integerLongMap = new HashMap<>();
 
     private Map<Date, Boolean> dateBooleanMap = new HashMap<>();
+
+    private Map<String, BigDecimal> stringBigDecimalMap = new HashMap<>();
 
     private java.sql.Date sqlDate;
 
@@ -124,6 +127,14 @@ public class Dummy {
 
     public void setStringlist(List<String> stringlist) {
         this.stringlist = stringlist;
+    }
+
+    public Map<String, BigDecimal> getStringBigDecimalMap() {
+        return stringBigDecimalMap;
+    }
+
+    public void setStringBigDecimalMap(Map<String, BigDecimal> stringBigDecimalMap) {
+        this.stringBigDecimalMap = stringBigDecimalMap;
     }
 }
 
