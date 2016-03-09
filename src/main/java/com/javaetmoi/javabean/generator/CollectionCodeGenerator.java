@@ -33,7 +33,7 @@ public class CollectionCodeGenerator extends DefaultCodeGenerator<Collection> {
         }
         Class<?> varType = (param.getPropertyDescriptor()!=null) ? param.getPropertyDescriptor().getPropertyType() : param.getValueClass();
         if (parameterizedType != null) {
-            if (hasParameterType(param.getValueClass().getClass())) {
+            if (hasParameterType(param.getValueClass())) {
                 method.addStatement("$T<$T> $L = new $T<>$L", varType, parameterizedType, collName, param.getValueClass(), constructorCall);
             } else {
                 method.addStatement("$T<$T> $L = new $T$L", varType, parameterizedType, collName, param.getValueClass(), constructorCall);
