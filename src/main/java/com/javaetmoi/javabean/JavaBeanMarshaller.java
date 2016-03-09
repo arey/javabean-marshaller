@@ -44,6 +44,7 @@ public class JavaBeanMarshaller {
         codeGenerators.add(new CollectionCodeGenerator());
         codeGenerators.add(new ArrayCodeGenerator());
         codeGenerators.add(new MapCodeGenerator());
+        codeGenerators.add(new XmlGregorianCalendarCodeGenerator());
         if (isJavaTimeSupported()) {
             codeGenerators.add(new Java8InstantCodeGenerator());
             codeGenerators.add(new Java8LocalDateCodeGenerator());

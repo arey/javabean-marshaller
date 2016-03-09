@@ -16,6 +16,9 @@ package com.javaetmoi.javabean;
 import com.javaetmoi.javabean.domain.*;
 import org.junit.Test;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
@@ -92,6 +95,13 @@ public class CommonMarshallerTest extends AbstractJavaBeanMarshallerTest {
     public void calendarProperty() {
         Dummy dummy = new Dummy();
         dummy.setCalendar(GregorianCalendar.getInstance());
+        executeTest(dummy);
+    }
+
+    @Test
+    public void xmlGregorianCalendar() throws DatatypeConfigurationException {
+        Dummy dummy = new Dummy();
+        dummy.setXmlGregorianCalendar(DatatypeFactory.newInstance().newXMLGregorianCalendar(2016, 3, 8, 19, 0, 10, 120, 1));
         executeTest(dummy);
     }
 

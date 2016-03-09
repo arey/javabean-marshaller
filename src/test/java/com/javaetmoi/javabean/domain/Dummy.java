@@ -1,5 +1,6 @@
 package com.javaetmoi.javabean.domain;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.Date;
@@ -32,6 +33,8 @@ public class Dummy {
     private String[][] multiDimArray;
 
     private List<String> stringlist;
+
+    private XMLGregorianCalendar xmlGregorianCalendar;
 
     public Set<Integer> getIntegerSet() {
         return integerSet;
@@ -135,6 +138,14 @@ public class Dummy {
 
     public void setStringBigDecimalMap(Map<String, BigDecimal> stringBigDecimalMap) {
         this.stringBigDecimalMap = stringBigDecimalMap;
+    }
+
+    public XMLGregorianCalendar getXmlGregorianCalendar() {
+        return xmlGregorianCalendar;
+    }
+
+    public void setXmlGregorianCalendar(XMLGregorianCalendar xmlGregorianCalendar) {
+        this.xmlGregorianCalendar = xmlGregorianCalendar;
     }
 }
 
