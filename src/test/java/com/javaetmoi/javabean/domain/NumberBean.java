@@ -10,6 +10,8 @@ public class NumberBean {
 
     private BigDecimal bigDecimal;
 
+    private Short shortWrapper;
+
     public float getFloatPrimitive() {
         return floatPrimitive;
     }
@@ -32,5 +34,13 @@ public class NumberBean {
 
     public void setBigDecimal(BigDecimal bigDecimal) {
         this.bigDecimal = bigDecimal;
+    }
+
+    public Short getShortWrapper() {
+        return shortWrapper;
+    }
+
+    public void setShortWrapper(Short shortWrapper) {
+        this.shortWrapper = shortWrapper;
     }
 }

@@ -22,6 +22,8 @@ public class NumberCodeGenerator implements CodeGenerator {
             method.addStatement("$L.$L($Lf)", param.getVarName(), param.getSetterName(), param.getValue());
         } else if (BigDecimal.class.isAssignableFrom(param.getValueClass())) {
             method.addStatement("$L.$L(new $T(\"$L\"))", param.getVarName(), param.getSetterName(), BigDecimal.class, param.getValue());
+        }  else if (Short.class.isAssignableFrom(param.getValueClass())) {
+            method.addStatement("$L.$L((short) $L)", param.getVarName(), param.getSetterName(), param.getValue());
         } else {
             method.addStatement("$L.$L($L)", param.getVarName(), param.getSetterName(), param.getValue());
         }
@@ -33,6 +35,8 @@ public class NumberCodeGenerator implements CodeGenerator {
             item.appendAfterVal("L");
         } else if (Float.class.isAssignableFrom(item.getClazz())) {
             item.appendAfterVal("f");
+        }  else if (Short.class.isAssignableFrom(item.getClazz())) {
+            item.appendBeforeVal("(short) ");
         } else if (BigDecimal.class.isAssignableFrom(item.getClazz())) {
             item.setPattern("new $T(\""+item.getVal()+"\")");
             item.setVal(BigDecimal.class);

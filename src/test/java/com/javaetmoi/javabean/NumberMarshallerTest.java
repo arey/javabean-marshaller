@@ -49,4 +49,11 @@ public class NumberMarshallerTest extends AbstractJavaBeanMarshallerTest {
         bean.setBigDecimal(new BigDecimal("1002.5"));
         executeTest(bean);
     }
+
+    @Test
+    public void shortWrapperProperty() {
+        NumberBean bean = new NumberBean();
+        bean.setShortWrapper((short) 2);
+        executeTest(bean);
+    }
 }
