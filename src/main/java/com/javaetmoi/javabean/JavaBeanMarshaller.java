@@ -165,6 +165,10 @@ public class JavaBeanMarshaller {
             LOG.warn("No setter for the {}::{} property", obj.getClass().getSimpleName(), propertyDescriptor.getDisplayName());
             return;
         }
+        if (propertyDescriptor.getReadMethod() == null) {
+            LOG.warn("No getter for the {}::{} property", obj.getClass().getSimpleName(), propertyDescriptor.getDisplayName());
+            return;
+        }
         Object val = propertyDescriptor.getReadMethod().invoke(obj);
         if (val == null) {
             return;
