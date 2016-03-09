@@ -6,7 +6,7 @@
     <artifactId>javaetmoi-javabean-marshaller</artifactId>
     <name>JavaEtMoi Util :: ${project.artifactId}</name>
     <packaging>jar</packaging>
-    <description>The JavaBeanMarshaller is responsible for serializing an object (graph) to it's Java code.
+    <description>The JavaBeanMarshaller class is responsible for serializing an object (graph) to it's Java code.
     </description>
     <inceptionYear>2016</inceptionYear>
     <url>https://github.com/arey/javabean-marshaller</url>
@@ -24,10 +24,10 @@
         </developer>
     </developers>
 
-    <!-- Continous Integration build hosted by CloudBees -->
+    <!-- Continous Integration build hosted by Travis CI -->
     <ciManagement>
-        <system>jenkins</system>
-        <url>https://javaetmoi.ci.cloudbees.com/job/JavaBean-Marshaller/</url>
+        <system>travis</system>
+        <url>https://travis-ci.org/arey/javabean-marshaller</url>
     </ciManagement>
     <issueManagement>
         <system>github</system>

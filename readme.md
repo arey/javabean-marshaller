@@ -13,10 +13,11 @@ Instead of using XML or JSON serialization, dataset are generated into the Java 
 * Enumeration
 * Collection and Map
 * Arrays (1 and 2 dimensions)
-* java.util.Date, java.sql.Date, Calendar
-* Java 8 Date & Time API
+* java.util.Date, java.sql.Date, Calendar, XMLGregorianCalendar
+* Java 8 Date & Time API (JSR-310)
 * JodaTime
 * Unidirectional and bidirectionnal relationships
+* Cyclic graph
 
 
 ## Example ##
@@ -87,6 +88,9 @@ JavaBeanMarshaller.generateJavaCode(myBean);
 Run your application and play the scenario.
 
 
+To support a new custome type, you have to implement the ```CodeGenerator``` interface then call the ```JavaBeanMarshaller::addCodeGenerator``` method.
+
+
 ## Getting Help ##
 
 This readme.md file contains the main documentation.
@@ -96,8 +100,8 @@ There are also unit tests available to look at.
 ## Contributing to JavaBean Marshaller ##
 
 Github is for social coding platform: if you want to write code, we encourage contributions through pull requests from [forks of this repository](https://help.github.com/articles/fork-a-repo/). If you want to contribute code this way, please reference a GitHub ticket as well covering the specific issue you are addressing.
+Before submitting your pull request, don't forget to write a corresponding unit test.
 
-To add a new custom type, you jave to implement the ```CodeGenerator``` interface then call the ```JavaBeanMarshaller::addCodeGenerator``` method.
 
 ### Development environment installation ###
 
