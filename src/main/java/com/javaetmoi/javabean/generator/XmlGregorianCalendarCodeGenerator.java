@@ -1,6 +1,7 @@
 package com.javaetmoi.javabean.generator;
 
 import com.javaetmoi.javabean.bean.SetterParam;
+import com.javaetmoi.javabean.util.JavapoetHelper;
 import com.squareup.javapoet.MethodSpec;
 
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -22,7 +23,7 @@ public class XmlGregorianCalendarCodeGenerator extends DefaultCodeGenerator<XMLG
         int millis = cal.getMillisecond();
         int timezone = cal.getTimezone();
         method.addStatement("$L.$L($T.newInstance().newXMLGregorianCalendar($L, $L, $L, $L, $L, $L, $L, $L))", param.getVarName(), param.getSetterName(), DatatypeFactory.class, year, month, day, hour, minute, second, millis, timezone);
-        method.addException(DatatypeConfigurationException.class);
+        JavapoetHelper.addExceptionIfNotDeclared(method, DatatypeConfigurationException.class);
     }
 
 }

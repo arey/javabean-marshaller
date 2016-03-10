@@ -1,6 +1,8 @@
 package com.javaetmoi.javabean.util;
 
+import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
 import java.util.List;
@@ -21,4 +23,12 @@ public class JavapoetHelper {
         }
         return null;
     }
+
+    public static void addExceptionIfNotDeclared(MethodSpec.Builder methodBuilder, Class<?> exception) {
+        // See https://github.com/square/javapoet/issues/438
+        ClassName ex = ClassName.get(exception);
+        if (!methodBuilder.build().exceptions.contains(ex)) methodBuilder.addException(ex);
+    }
 }
+
+
