@@ -60,7 +60,7 @@ public class ArrayCodeGenerator implements CodeGenerator {
                     method.addStatement("$L[$L][$L] = $L", multiArrayName, i, j, objName);
                 } else {
                     Item item = param.getMarshaller().buildItem(obj);
-                    method.addStatement("$L[$L][$L] = " + item.getPattern(),multiArrayName, i, j, item.getVal());
+                    method.addStatement("$L[$L][$L] = " + item.getPattern(), multiArrayName, i, j, item.getVal());
                 }
             }
         }
