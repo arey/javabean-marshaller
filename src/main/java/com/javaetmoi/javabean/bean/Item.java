@@ -7,18 +7,31 @@ package com.javaetmoi.javabean.bean;
  * <ul>
  * <li>Key or value of a Map</li>
  * <li>Value of an array</li>
+ * <li>Custom generator</li>
  * </ul>
  */
 public class Item {
 
+    /**
+     * Wrapped value.
+     */
     private Object val;
+
+    /**
+     * Class of the value.
+     */
     private final Class<?> clazz;
 
     /**
-     * Javapoet expression
+     * Javapoet expression.
      */
     private String pattern = "$L";
 
+    /**
+     * Item constructor.
+     *
+     * @param val value to wrap
+     */
     public Item(Object val) {
         this.val = val;
         this.clazz = val.getClass();
