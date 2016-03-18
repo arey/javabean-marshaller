@@ -19,7 +19,7 @@ public class DateCodeGenerator implements CodeGenerator {
     public void generateSetter(MethodSpec.Builder method, SetterParam param) {
         MethodSpec parseMethod = ParseDateMethod.requireParseDateMethod(param.getCurrentClass());
         String strDate = ParseDateMethod.DATE_FORMAT.format(param.getValue());
-        method.addStatement("$L.$L($L(\"" + strDate + "\"))", param.getVarName(), param.getSetterName(), parseMethod.name);
+        method.addStatement("$L.$L($N(\"" + strDate + "\"))", param.getVarName(), param.getSetterName(), parseMethod);
     }
 
     @Override
