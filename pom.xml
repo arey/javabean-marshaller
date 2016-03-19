@@ -72,6 +72,7 @@
         <version.plugin.maven-release-plugin>2.5</version.plugin.maven-release-plugin>
         <version.plugin.nexus-staging-maven-plugin>1.6.2</version.plugin.nexus-staging-maven-plugin>
         <version.plugin.maven-gpg-plugin>1.5</version.plugin.maven-gpg-plugin>
+        <version.plugin.jacoco-maven-plugin>0.7.6.201602180812</version.plugin.jacoco-maven-plugin>
     </properties>
 
     <dependencies>
@@ -185,6 +186,19 @@
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${version.plugin.jacoco-maven-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
