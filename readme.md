@@ -139,6 +139,7 @@ Otherwise, generate IDE metadata with the related IDE maven plugin:
 
 ## Build Status ##
 
-Travis: [![Build
+* Travis: [![Build
 Status](https://travis-ci.org/arey/javabean-marshaller.png?branch=master)](https://travis-ci.org/arey/javabean-marshaller)
+* Coverage [![Coverage Status](https://coveralls.io/repos/github/arey/javabean-marshaller/badge.svg?branch=master)](https://coveralls.io/github/arey/javabean-marshaller?branch=master)
 
