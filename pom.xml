@@ -73,6 +73,7 @@
         <version.plugin.nexus-staging-maven-plugin>1.6.2</version.plugin.nexus-staging-maven-plugin>
         <version.plugin.maven-gpg-plugin>1.5</version.plugin.maven-gpg-plugin>
         <version.plugin.jacoco-maven-plugin>0.7.6.201602180812</version.plugin.jacoco-maven-plugin>
+        <version.plugin.coveralls-maven-plugin>4.1.0</version.plugin.coveralls-maven-plugin>
     </properties>
 
     <dependencies>
@@ -199,6 +200,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>${version.plugin.coveralls-maven-plugin}</version>
+                <configuration>
+                    <repoToken>H5ZU0qPPShhO61RJshXV5lyae1DnEFYUX</repoToken>
+                </configuration>
             </plugin>
         </plugins>
     </build>
