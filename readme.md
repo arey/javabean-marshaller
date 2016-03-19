@@ -118,6 +118,17 @@ Otherwise, generate IDE metadata with the related IDE maven plugin:
 
 ``mvn eclipse:clean eclipse:eclipse``
 
+## Release Note ##
+
+<table>
+  <tr>
+    <th>Version</th><th>Release date</th><th>Features</th>
+  </tr>
+  <tr>
+    <td>1.0.0</td><td>2016-03-19</td><td>Initial release</td>
+  </tr>
+</table>
+
 
 ## Credits ##
 
