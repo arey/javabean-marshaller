@@ -183,7 +183,7 @@ public class JavaBeanMarshaller {
             return getVariableName(bean);
         }
         processedBeans.add(bean);
-        String varName = getOrGenerateVariableName(bean);
+        String varName = generateVariableName(bean);
         method.addStatement("$T " + varName + " = new $T()", bean.getClass(), bean.getClass());
         PropertyDescriptor[] properties = PropertyUtils.getPropertyDescriptors(bean.getClass());
         for (PropertyDescriptor propertyDescriptor : properties) {
@@ -243,11 +243,20 @@ public class JavaBeanMarshaller {
         return getOrGenerateVariableName(obj, null);
     }
 
+    public String generateVariableName(Object obj) {
+        return generateVariableName(obj, null);
+    }
+
     public String getOrGenerateVariableName(Object obj, SetterParam setterParam) {
         String finaleName = getVariableName(obj);
         if (finaleName != null) {
             return finaleName;
         }
+        return generateVariableName(obj, setterParam);
+    }
+
+    public String generateVariableName(Object obj, SetterParam setterParam) {
+        String finaleName = null;
         String baseName;
         if ((setterParam == null) || (setterParam.getPropertyDescriptor() == null)) {
             baseName = generateBaseVariableName(obj);
@@ -264,7 +273,6 @@ public class JavaBeanMarshaller {
             }
         }
         variables.put(obj, finaleName);
-
         return finaleName;
     }
 
