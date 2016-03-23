@@ -3,7 +3,6 @@ package com.javaetmoi.javabean;
 import com.javaetmoi.javabean.bean.Item;
 import com.javaetmoi.javabean.bean.SetterParam;
 import com.javaetmoi.javabean.generator.*;
-import com.javaetmoi.javabean.util.IdentitySet;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
@@ -38,13 +37,13 @@ import java.util.*;
  */
 public class JavaBeanMarshaller {
 
-    private Map<Object, String> variables = new HashMap<Object, String>();
+    private Map<Object, String> variables = new HashMap<>();
 
     private final TypeSpec.Builder clazz;
 
     private final MethodSpec.Builder method;
 
-    private Set<Object> processedBeans = new IdentitySet<Object>();
+    private Set<Object> processedBeans = new HashSet<>();
 
     private final static Logger LOG = LoggerFactory.getLogger(JavaBeanMarshaller.class);
 
