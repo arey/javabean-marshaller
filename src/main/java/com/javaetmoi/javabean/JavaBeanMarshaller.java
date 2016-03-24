@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.lang.model.element.Modifier;
 import java.beans.PropertyDescriptor;
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Path;
@@ -276,13 +275,34 @@ public class JavaBeanMarshaller {
     }
 
     private String generateBaseVariableName(PropertyDescriptor propertyDescriptor) {
-        return propertyDescriptor.getName();
+        String name = propertyDescriptor.getName();
+        Set<String> suffixes = new HashSet<>(Arrays.asList( "list", "map", "set", "queue"));
+        if (isCollection(propertyDescriptor)) {
+            boolean plural = false;
+            for (String suffix : suffixes) {
+                if (name.toLowerCase(Locale.ENGLISH).endsWith(suffix)) {
+                    plural = true;
+                    break;
+                }
+            }
+            if (!plural) {
+                name = pluralize(name);
+            }
+        }
+        return name;
+    }
+
+    private boolean isCollection(PropertyDescriptor propertyDescriptor) {
+        Class<?> propertyType = propertyDescriptor.getPropertyType();
+        return Map.class.isAssignableFrom(propertyType)
+                || Collection.class.isAssignableFrom(propertyType)
+                || propertyType.isArray();
     }
 
     private String generateBaseVariableName(Object obj) {
         String className;
         if (obj.getClass().isArray()) {
-            className = plural(obj.getClass().getComponentType().getSimpleName());
+            className = pluralize(obj.getClass().getComponentType().getSimpleName());
         } else if (Collection.class.isAssignableFrom(obj.getClass())) {
             className = obj.getClass().getSimpleName();
             Collection<?> coll = (Collection<?>) obj;
@@ -316,12 +336,12 @@ public class JavaBeanMarshaller {
         Object item = coll.iterator().next();
         if (item != null) {
             Class itemClazz = item.getClass();
-            className = plural(itemClazz.getSimpleName());
+            className = pluralize(itemClazz.getSimpleName());
         }
         return className;
     }
 
-    private String plural(String name) {
+    private String pluralize(String name) {
         if (name.endsWith("ss")) {
             return name + "es";
         } else if (!name.endsWith("s")) {
