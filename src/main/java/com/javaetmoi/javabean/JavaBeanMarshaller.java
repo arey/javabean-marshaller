@@ -3,6 +3,7 @@ package com.javaetmoi.javabean;
 import com.javaetmoi.javabean.bean.Item;
 import com.javaetmoi.javabean.bean.SetterParam;
 import com.javaetmoi.javabean.generator.*;
+import com.javaetmoi.javabean.util.NamingUtils;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
@@ -171,8 +172,7 @@ public class JavaBeanMarshaller {
         String varName = generateBeanCode(bean);
         method.addStatement("return " + varName);
         clazz.addMethod(method.build());
-        JavaFile javaFile = JavaFile.builder("", clazz.build()).build();
-        return javaFile;
+        return JavaFile.builder("", clazz.build()).build();
     }
 
 
@@ -257,9 +257,9 @@ public class JavaBeanMarshaller {
         String finaleName = null;
         String baseName;
         if ((setterParam == null) || (setterParam.getPropertyDescriptor() == null)) {
-            baseName = generateBaseVariableName(obj);
+            baseName = NamingUtils.generateBaseVariableName(obj);
         } else {
-            baseName = generateBaseVariableName(setterParam.getPropertyDescriptor());
+            baseName = NamingUtils.generateBaseVariableName(setterParam.getPropertyDescriptor());
         }
         int num = 1;
         Collection<String> variableNames = variables.values();
@@ -272,92 +272,6 @@ public class JavaBeanMarshaller {
         }
         variables.put(obj, finaleName);
         return finaleName;
-    }
-
-    private String generateBaseVariableName(PropertyDescriptor propertyDescriptor) {
-        String name = propertyDescriptor.getName();
-        Set<String> suffixes = new HashSet<>(Arrays.asList( "list", "map", "set", "queue"));
-        if (isCollection(propertyDescriptor)) {
-            boolean plural = false;
-            for (String suffix : suffixes) {
-                if (name.toLowerCase(Locale.ENGLISH).endsWith(suffix)) {
-                    plural = true;
-                    break;
-                }
-            }
-            if (!plural) {
-                name = pluralize(name);
-            }
-        }
-        return name;
-    }
-
-    private boolean isCollection(PropertyDescriptor propertyDescriptor) {
-        Class<?> propertyType = propertyDescriptor.getPropertyType();
-        return Map.class.isAssignableFrom(propertyType)
-                || Collection.class.isAssignableFrom(propertyType)
-                || propertyType.isArray();
-    }
-
-    private String generateBaseVariableName(Object obj) {
-        String className;
-        if (obj.getClass().isArray()) {
-            className = pluralize(obj.getClass().getComponentType().getSimpleName());
-        } else if (Collection.class.isAssignableFrom(obj.getClass())) {
-            className = obj.getClass().getSimpleName();
-            Collection<?> coll = (Collection<?>) obj;
-            if (!coll.isEmpty()) {
-                className = getNameFromItem(className, coll);
-            }
-        } else if (Map.class.isAssignableFrom(obj.getClass())) {
-            className = obj.getClass().getSimpleName();
-            Map<?, ?> map = (Map<?, ?>) obj;
-            if (!map.isEmpty()) {
-                className = getNameFromItem(className, map.values());
-            }
-        } else {
-            className = obj.getClass().getSimpleName();
-        }
-        String baseName = unCapitalize(className);
-        baseName = escapeChars(baseName);
-        return baseName;
-    }
-
-    private String escapeChars(String srcName) {
-        String finalName = srcName;
-        if (srcName.contains("[]")) {
-            finalName = finalName.replaceAll("\\[\\]", "");
-        }
-        return finalName;
-    }
-
-
-    private String getNameFromItem(String className, Collection<?> coll) {
-        Object item = coll.iterator().next();
-        if (item != null) {
-            Class itemClazz = item.getClass();
-            className = pluralize(itemClazz.getSimpleName());
-        }
-        return className;
-    }
-
-    private String pluralize(String name) {
-        if (name.endsWith("ss")) {
-            return name + "es";
-        } else if (!name.endsWith("s")) {
-            return name + "s";
-        }
-        return name;
-    }
-
-    private String unCapitalize(String str) {
-        int strLen;
-        if (str != null && (strLen = str.length()) != 0) {
-            char firstChar = str.charAt(0);
-            return Character.isLowerCase(firstChar) ? str : (new StringBuilder(strLen)).append(Character.toLowerCase(firstChar)).append(str.substring(1)).toString();
-        } else {
-            return str;
-        }
     }
 
     public Item buildItem(Object val) {
