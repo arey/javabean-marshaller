@@ -95,6 +95,7 @@ To support a new custome type, you have to implement the ```CodeGenerator``` int
 
 This readme.md file contains the main documentation.
 There are also unit tests available to look at.
+A french article titled *Génération de jeux de données Java* : http://javaetmoi.com/2016/03/generation-jeux-donnees-java/
 
 
 ## Contributing to JavaBean Marshaller ##
