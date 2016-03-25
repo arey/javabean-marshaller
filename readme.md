@@ -125,13 +125,13 @@ Otherwise, generate IDE metadata with the related IDE maven plugin:
 
 <table>
   <tr>
-    <th>Version</th><th>Release date</th><th>Features</th><th>Release note</th>
+    <th>Version</th><th>Release date</th><th>Features</th>
   </tr>
   <tr>
-    <td>1.0.1</td><td>2016-03-23</td><td>Enhance quality of the generated code</td><td>[1.0.1](https://github.com/arey/javabean-marshaller/issues?q=milestone%3A1.0.1)</td>
+    <td>1.0.1</td><td>2016-03-23</td><td>Enhance quality of the generated code</td>
   </tr>
   <tr>
-    <td>1.0.0</td><td>2016-03-19</td><td>Initial release</td><td></td>
+    <td>1.0.0</td><td>2016-03-19</td><td>Initial release</td>
   </tr>
 </table>
 
