@@ -72,7 +72,7 @@ Download the jar though Maven:
 <dependency>
   <groupId>com.javaetmoi.util</groupId>
   <artifactId>javaetmoi-javabean-marshaller</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
@@ -94,7 +94,9 @@ To support a new custome type, you have to implement the ```CodeGenerator``` int
 ## Getting Help ##
 
 This readme.md file contains the main documentation.
+
 There are also unit tests available to look at.
+
 A french article titled *Génération de jeux de données Java* : http://javaetmoi.com/2016/03/generation-jeux-donnees-java/
 
 
@@ -123,10 +125,13 @@ Otherwise, generate IDE metadata with the related IDE maven plugin:
 
 <table>
   <tr>
-    <th>Version</th><th>Release date</th><th>Features</th>
+    <th>Version</th><th>Release date</th><th>Features</th><th>Release note</th>
   </tr>
   <tr>
-    <td>1.0.0</td><td>2016-03-19</td><td>Initial release</td>
+    <td>1.0.1</td><td>2016-03-23</td><td>Enhance quality of the generated code</td><td>[1.0.1](https://github.com/arey/javabean-marshaller/issues?q=milestone%3A1.0.1)</td>
+  </tr>
+  <tr>
+    <td>1.0.0</td><td>2016-03-19</td><td>Initial release</td><td></td>
   </tr>
 </table>
 
