@@ -6,6 +6,7 @@ import com.javaetmoi.javabean.bean.SetterParam;
 import com.squareup.javapoet.MethodSpec;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class NumberCodeGenerator implements CodeGenerator {
 
@@ -22,7 +23,9 @@ public class NumberCodeGenerator implements CodeGenerator {
             method.addStatement("$L.$L($Lf)", param.getVarName(), param.getSetterName(), param.getValue());
         } else if (BigDecimal.class.isAssignableFrom(param.getValueClass())) {
             method.addStatement("$L.$L(new $T(\"$L\"))", param.getVarName(), param.getSetterName(), BigDecimal.class, param.getValue());
-        }  else if (Short.class.isAssignableFrom(param.getValueClass())) {
+        } else if (BigInteger.class.isAssignableFrom(param.getValueClass())) {
+            method.addStatement("$L.$L(new $T(\"$L\"))", param.getVarName(), param.getSetterName(), BigInteger.class, param.getValue());
+        } else if (Short.class.isAssignableFrom(param.getValueClass())) {
             method.addStatement("$L.$L((short) $L)", param.getVarName(), param.getSetterName(), param.getValue());
         } else {
             method.addStatement("$L.$L($L)", param.getVarName(), param.getSetterName(), param.getValue());

@@ -1,6 +1,7 @@
 package com.javaetmoi.javabean.domain;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class NumberBean {
 
@@ -11,6 +12,8 @@ public class NumberBean {
     private BigDecimal bigDecimal;
 
     private Short shortWrapper;
+
+    private BigInteger bigInteger;
 
     public float getFloatPrimitive() {
         return floatPrimitive;
@@ -42,5 +45,13 @@ public class NumberBean {
 
     public void setShortWrapper(Short shortWrapper) {
         this.shortWrapper = shortWrapper;
+    }
+
+    public BigInteger getBigInteger() {
+        return bigInteger;
+    }
+
+    public void setBigInteger(BigInteger bigInteger) {
+        this.bigInteger = bigInteger;
     }
 }

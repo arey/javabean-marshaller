@@ -7,6 +7,7 @@ import com.javaetmoi.javabean.domain.NumberBean;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class NumberMarshallerTest extends AbstractJavaBeanMarshallerTest {
 
@@ -47,6 +48,13 @@ public class NumberMarshallerTest extends AbstractJavaBeanMarshallerTest {
     public void bigDecimalProperty() {
         NumberBean bean = new NumberBean();
         bean.setBigDecimal(new BigDecimal("1002.5"));
+        executeTest(bean);
+    }
+
+    @Test
+    public void bigIntegerProperty() {
+        NumberBean bean = new NumberBean();
+        bean.setBigInteger(new BigInteger("123456789012345678901234567890"));
         executeTest(bean);
     }
 
