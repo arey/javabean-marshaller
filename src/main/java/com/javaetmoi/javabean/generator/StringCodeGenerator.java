@@ -14,7 +14,10 @@ public class StringCodeGenerator implements CodeGenerator {
 
     @Override
     public void generateSetter(MethodSpec.Builder method, SetterParam param) {
-        method.addStatement("$L.$L(\"$L\")", param.getVarName(), param.getSetterName(), param.getValue());
+        String str = (String) param.getValue();
+        // Escape double quotes (used in JSON)
+        str = str.replaceAll("\"", "\\\\\"");
+        method.addStatement("$L.$L(\"$L\")", param.getVarName(), param.getSetterName(), str);
     }
 
     @Override

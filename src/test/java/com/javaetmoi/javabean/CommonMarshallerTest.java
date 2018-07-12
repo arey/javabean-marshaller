@@ -39,6 +39,12 @@ public class CommonMarshallerTest extends AbstractJavaBeanMarshallerTest {
     }
 
     @Test
+    public void stringPropertyWithJson() {
+        Country france = new Country(null, "{\"name\": \"France\"}");
+        executeTest(france);
+    }
+
+    @Test
     public void dateProperty() {
         Person james = new Customer();
         james.setBirthday(new Date());
