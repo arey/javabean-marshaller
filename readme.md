@@ -72,7 +72,7 @@ Download the jar though Maven:
 <dependency>
   <groupId>com.javaetmoi.util</groupId>
   <artifactId>javaetmoi-javabean-marshaller</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 
@@ -123,20 +123,13 @@ Otherwise, generate IDE metadata with the related IDE maven plugin:
 
 ## Release Note ##
 
-<table>
-  <tr>
-    <th>Version</th><th>Release date</th><th>Features</th>
-  </tr>
-    <tr>
-      <td>1.0.2</td><td>2017-12-22</td><td>Add BigInteger support</td>
-    </tr>
-  <tr>
-    <td>1.0.1</td><td>2016-03-23</td><td>Enhance quality of the generated code</td>
-  </tr>
-  <tr>
-    <td>1.0.0</td><td>2016-03-19</td><td>Initial release</td>
-  </tr>
-</table>
+| Version | Release Date | Features                              |
+|---------|--------------|---------------------------------------|
+| 1.0.3   | 2018-07-11   | Escape double quotes in String        |
+| 1.0.2   | 2017-12-22   | Add BigInteger support                |
+| 1.0.1   | 2016-03-23   | Enhance quality of the generated code |
+| 1.0.0   | 2016-03-19   | Initial release                       |
+
 
 
 ## Credits ##
