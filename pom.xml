@@ -60,7 +60,7 @@
         <version.slf4j>1.7.12</version.slf4j>
         <version.joda-time>2.8.2</version.joda-time>
         <version.commons-beanutils>1.9.4</version.commons-beanutils>
-        <version.junit>4.11</version.junit>
+        <version.junit>4.13.1</version.junit>
         <version.unitils>3.4.1</version.unitils>
 
         <!-- Version of maven plugins -->
